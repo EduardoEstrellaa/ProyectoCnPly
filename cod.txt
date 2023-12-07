@@ -1,0 +1,19 @@
+POBLACION.DISCRETA $poblacion1 [12.5 , 18.78 , 2, 4, 6, 8, 16, 14, 22, 20]
+
+
+    PROCEDIMIENTO MEDIA $y
+        $VARIABLE.DISCRETA
+        devuelve $VARIABLE
+    FIN_PROCEDIMIENTO
+
+$poblacion1.AGREGAR [66,88,55,22]
+    IMPRIME $poblacion1
+
+$MI_MEDIA equal MTC.MEDIA $poblacion1
+IMPRIME $MI_MEDIA 
+
+
+/*  Supuesta Impresion de la Variable poblacion1
+*   [12, 18, 2, 4, 6, 8, 16, 14, 22, 20, 66, 88, 55, 22]
+*
+*/

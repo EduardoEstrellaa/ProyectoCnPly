@@ -1,0 +1,1381 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    AGREGA
+    COMENTARIOS
+    DIVISION
+    IGUAL
+    IGUAL_FUNC
+    OP_IGUALDAD
+    ORDENA
+    PR_DEVUELVE
+    PR_FIN_PROCEDIMIENTO
+    PR_INDIVIDUO
+    PR_MED_DISPERSION
+    PR_MED_TEN_CENTRAL
+    PR_MEZCLA
+    PR_PROCEDIMIENTO
+    SUMATORIA
+
+Grammar
+
+Rule 0     S' -> expression
+Rule 1     expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+Rule 2     expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+Rule 3     expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+Rule 4     expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+Rule 5     expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+Rule 6     expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+Rule 7     expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+Rule 8     expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+Rule 9     expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+Rule 10    expression -> ADICION expression COMA term
+Rule 11    expression -> SUSTRACCION expression COMA term
+Rule 12    expression -> PRODUCTO expression COMA term
+Rule 13    expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+Rule 14    expression -> expression POTENCIA term
+Rule 15    expression -> expression RAIZ
+Rule 16    expression -> expression OP_MENOR expression
+Rule 17    expression -> expression OP_MAYOR expression
+Rule 18    expression -> term
+Rule 19    term -> factor
+Rule 20    factor -> NUMEROS
+Rule 21    expression -> VARIABLE
+Rule 22    set_elements -> expression
+Rule 23    set_elements -> expression COMA set_elements
+Rule 24    expression -> NUMEROS
+
+Terminals, with rules where they appear
+
+ADICION              : 10
+AGREGA               : 
+COMA                 : 10 11 12 23
+COMENTARIOS          : 
+CORCHETE_DER         : 1 2 3 4
+CORCHETE_IZQ         : 1 2 3 4
+Calc_DESV_ESTANDAR   : 8
+Calc_MEDIANA         : 6
+Calc_MEDIA_ARITMETICA : 7
+Calc_MODA            : 5
+Calc_VARIANZA        : 9
+DIVISION             : 
+IGUAL                : 
+IGUAL_FUNC           : 
+IMPRIME_DATOS        : 13
+NUMEROS              : 20 24
+OP_IGUALDAD          : 
+OP_MAYOR             : 17
+OP_MENOR             : 16
+ORDENA               : 
+PARENTESIS_DER       : 5 6 7 8 9 13
+PARENTESIS_IZQ       : 5 6 7 8 9 13
+POTENCIA             : 14
+PRODUCTO             : 12
+PR_CONTINUA          : 2 3
+PR_DEVUELVE          : 
+PR_DISCRETA          : 1 4
+PR_FIN_PROCEDIMIENTO : 
+PR_INDIVIDUO         : 
+PR_MED_DISPERSION    : 
+PR_MED_TEN_CENTRAL   : 
+PR_MEZCLA            : 
+PR_MUESTRA           : 2 4
+PR_POBLACION         : 1 3
+PR_PROCEDIMIENTO     : 
+PUNTO                : 1 2 3 4
+RAIZ                 : 15
+SUMATORIA            : 
+SUSTRACCION          : 11
+VARIABLE             : 1 2 3 4 5 6 7 8 9 21
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 10 11 12 13 14 15 16 16 17 17 22 23 0
+factor               : 19
+set_elements         : 1 2 3 4 23
+term                 : 10 11 12 14 18
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . expression
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 1
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 1
+
+    (0) S' -> expression .
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+
+state 2
+
+    (1) expression -> PR_POBLACION . PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> PR_POBLACION . PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    PUNTO           shift and go to state 21
+
+
+state 3
+
+    (21) expression -> VARIABLE .
+
+    POTENCIA        reduce using rule 21 (expression -> VARIABLE .)
+    RAIZ            reduce using rule 21 (expression -> VARIABLE .)
+    OP_MENOR        reduce using rule 21 (expression -> VARIABLE .)
+    OP_MAYOR        reduce using rule 21 (expression -> VARIABLE .)
+    $end            reduce using rule 21 (expression -> VARIABLE .)
+    COMA            reduce using rule 21 (expression -> VARIABLE .)
+    PARENTESIS_IZQ  reduce using rule 21 (expression -> VARIABLE .)
+    CORCHETE_IZQ    reduce using rule 21 (expression -> VARIABLE .)
+
+
+state 4
+
+    (2) expression -> PR_MUESTRA . PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> PR_MUESTRA . PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    PUNTO           shift and go to state 22
+
+
+state 5
+
+    (5) expression -> Calc_MODA . PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+
+    PARENTESIS_DER  shift and go to state 23
+
+
+state 6
+
+    (6) expression -> Calc_MEDIANA . PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+
+    PARENTESIS_DER  shift and go to state 24
+
+
+state 7
+
+    (7) expression -> Calc_MEDIA_ARITMETICA . PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+
+    PARENTESIS_DER  shift and go to state 25
+
+
+state 8
+
+    (8) expression -> Calc_DESV_ESTANDAR . PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+
+    PARENTESIS_DER  shift and go to state 26
+
+
+state 9
+
+    (9) expression -> Calc_VARIANZA . PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+
+    PARENTESIS_DER  shift and go to state 27
+
+
+state 10
+
+    (10) expression -> ADICION . expression COMA term
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 28
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 11
+
+    (18) expression -> term .
+
+    POTENCIA        reduce using rule 18 (expression -> term .)
+    RAIZ            reduce using rule 18 (expression -> term .)
+    OP_MENOR        reduce using rule 18 (expression -> term .)
+    OP_MAYOR        reduce using rule 18 (expression -> term .)
+    $end            reduce using rule 18 (expression -> term .)
+    COMA            reduce using rule 18 (expression -> term .)
+    PARENTESIS_IZQ  reduce using rule 18 (expression -> term .)
+    CORCHETE_IZQ    reduce using rule 18 (expression -> term .)
+
+
+state 12
+
+    (11) expression -> SUSTRACCION . expression COMA term
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 29
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 13
+
+    (12) expression -> PRODUCTO . expression COMA term
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 30
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 14
+
+    (13) expression -> IMPRIME_DATOS . PARENTESIS_DER expression PARENTESIS_IZQ
+
+    PARENTESIS_DER  shift and go to state 31
+
+
+state 15
+
+    (24) expression -> NUMEROS .
+    (20) factor -> NUMEROS .
+
+  ! reduce/reduce conflict for POTENCIA resolved using rule 20 (factor -> NUMEROS .)
+  ! reduce/reduce conflict for RAIZ resolved using rule 20 (factor -> NUMEROS .)
+  ! reduce/reduce conflict for OP_MENOR resolved using rule 20 (factor -> NUMEROS .)
+  ! reduce/reduce conflict for OP_MAYOR resolved using rule 20 (factor -> NUMEROS .)
+  ! reduce/reduce conflict for $end resolved using rule 20 (factor -> NUMEROS .)
+  ! reduce/reduce conflict for COMA resolved using rule 20 (factor -> NUMEROS .)
+  ! reduce/reduce conflict for PARENTESIS_IZQ resolved using rule 20 (factor -> NUMEROS .)
+  ! reduce/reduce conflict for CORCHETE_IZQ resolved using rule 20 (factor -> NUMEROS .)
+    POTENCIA        reduce using rule 20 (factor -> NUMEROS .)
+    RAIZ            reduce using rule 20 (factor -> NUMEROS .)
+    OP_MENOR        reduce using rule 20 (factor -> NUMEROS .)
+    OP_MAYOR        reduce using rule 20 (factor -> NUMEROS .)
+    $end            reduce using rule 20 (factor -> NUMEROS .)
+    COMA            reduce using rule 20 (factor -> NUMEROS .)
+    PARENTESIS_IZQ  reduce using rule 20 (factor -> NUMEROS .)
+    CORCHETE_IZQ    reduce using rule 20 (factor -> NUMEROS .)
+
+  ! POTENCIA        [ reduce using rule 24 (expression -> NUMEROS .) ]
+  ! RAIZ            [ reduce using rule 24 (expression -> NUMEROS .) ]
+  ! OP_MENOR        [ reduce using rule 24 (expression -> NUMEROS .) ]
+  ! OP_MAYOR        [ reduce using rule 24 (expression -> NUMEROS .) ]
+  ! $end            [ reduce using rule 24 (expression -> NUMEROS .) ]
+  ! COMA            [ reduce using rule 24 (expression -> NUMEROS .) ]
+  ! PARENTESIS_IZQ  [ reduce using rule 24 (expression -> NUMEROS .) ]
+  ! CORCHETE_IZQ    [ reduce using rule 24 (expression -> NUMEROS .) ]
+
+
+state 16
+
+    (19) term -> factor .
+
+    POTENCIA        reduce using rule 19 (term -> factor .)
+    RAIZ            reduce using rule 19 (term -> factor .)
+    OP_MENOR        reduce using rule 19 (term -> factor .)
+    OP_MAYOR        reduce using rule 19 (term -> factor .)
+    $end            reduce using rule 19 (term -> factor .)
+    COMA            reduce using rule 19 (term -> factor .)
+    PARENTESIS_IZQ  reduce using rule 19 (term -> factor .)
+    CORCHETE_IZQ    reduce using rule 19 (term -> factor .)
+
+
+state 17
+
+    (14) expression -> expression POTENCIA . term
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    NUMEROS         shift and go to state 33
+
+    term                           shift and go to state 32
+    factor                         shift and go to state 16
+
+state 18
+
+    (15) expression -> expression RAIZ .
+
+    POTENCIA        reduce using rule 15 (expression -> expression RAIZ .)
+    RAIZ            reduce using rule 15 (expression -> expression RAIZ .)
+    OP_MENOR        reduce using rule 15 (expression -> expression RAIZ .)
+    OP_MAYOR        reduce using rule 15 (expression -> expression RAIZ .)
+    $end            reduce using rule 15 (expression -> expression RAIZ .)
+    COMA            reduce using rule 15 (expression -> expression RAIZ .)
+    PARENTESIS_IZQ  reduce using rule 15 (expression -> expression RAIZ .)
+    CORCHETE_IZQ    reduce using rule 15 (expression -> expression RAIZ .)
+
+
+state 19
+
+    (16) expression -> expression OP_MENOR . expression
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 34
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 20
+
+    (17) expression -> expression OP_MAYOR . expression
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 35
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 21
+
+    (1) expression -> PR_POBLACION PUNTO . PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> PR_POBLACION PUNTO . PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    PR_DISCRETA     shift and go to state 36
+    PR_CONTINUA     shift and go to state 37
+
+
+state 22
+
+    (2) expression -> PR_MUESTRA PUNTO . PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> PR_MUESTRA PUNTO . PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    PR_CONTINUA     shift and go to state 38
+    PR_DISCRETA     shift and go to state 39
+
+
+state 23
+
+    (5) expression -> Calc_MODA PARENTESIS_DER . VARIABLE PARENTESIS_IZQ
+
+    VARIABLE        shift and go to state 40
+
+
+state 24
+
+    (6) expression -> Calc_MEDIANA PARENTESIS_DER . VARIABLE PARENTESIS_IZQ
+
+    VARIABLE        shift and go to state 41
+
+
+state 25
+
+    (7) expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER . VARIABLE PARENTESIS_IZQ
+
+    VARIABLE        shift and go to state 42
+
+
+state 26
+
+    (8) expression -> Calc_DESV_ESTANDAR PARENTESIS_DER . VARIABLE PARENTESIS_IZQ
+
+    VARIABLE        shift and go to state 43
+
+
+state 27
+
+    (9) expression -> Calc_VARIANZA PARENTESIS_DER . VARIABLE PARENTESIS_IZQ
+
+    VARIABLE        shift and go to state 44
+
+
+state 28
+
+    (10) expression -> ADICION expression . COMA term
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+    COMA            shift and go to state 45
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+
+state 29
+
+    (11) expression -> SUSTRACCION expression . COMA term
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+    COMA            shift and go to state 46
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+
+state 30
+
+    (12) expression -> PRODUCTO expression . COMA term
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+    COMA            shift and go to state 47
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+
+state 31
+
+    (13) expression -> IMPRIME_DATOS PARENTESIS_DER . expression PARENTESIS_IZQ
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 48
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 32
+
+    (14) expression -> expression POTENCIA term .
+
+    POTENCIA        reduce using rule 14 (expression -> expression POTENCIA term .)
+    RAIZ            reduce using rule 14 (expression -> expression POTENCIA term .)
+    OP_MENOR        reduce using rule 14 (expression -> expression POTENCIA term .)
+    OP_MAYOR        reduce using rule 14 (expression -> expression POTENCIA term .)
+    $end            reduce using rule 14 (expression -> expression POTENCIA term .)
+    COMA            reduce using rule 14 (expression -> expression POTENCIA term .)
+    PARENTESIS_IZQ  reduce using rule 14 (expression -> expression POTENCIA term .)
+    CORCHETE_IZQ    reduce using rule 14 (expression -> expression POTENCIA term .)
+
+
+state 33
+
+    (20) factor -> NUMEROS .
+
+    POTENCIA        reduce using rule 20 (factor -> NUMEROS .)
+    RAIZ            reduce using rule 20 (factor -> NUMEROS .)
+    OP_MENOR        reduce using rule 20 (factor -> NUMEROS .)
+    OP_MAYOR        reduce using rule 20 (factor -> NUMEROS .)
+    $end            reduce using rule 20 (factor -> NUMEROS .)
+    COMA            reduce using rule 20 (factor -> NUMEROS .)
+    PARENTESIS_IZQ  reduce using rule 20 (factor -> NUMEROS .)
+    CORCHETE_IZQ    reduce using rule 20 (factor -> NUMEROS .)
+
+
+state 34
+
+    (16) expression -> expression OP_MENOR expression .
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+  ! shift/reduce conflict for POTENCIA resolved as shift
+  ! shift/reduce conflict for RAIZ resolved as shift
+  ! shift/reduce conflict for OP_MENOR resolved as shift
+  ! shift/reduce conflict for OP_MAYOR resolved as shift
+    $end            reduce using rule 16 (expression -> expression OP_MENOR expression .)
+    COMA            reduce using rule 16 (expression -> expression OP_MENOR expression .)
+    PARENTESIS_IZQ  reduce using rule 16 (expression -> expression OP_MENOR expression .)
+    CORCHETE_IZQ    reduce using rule 16 (expression -> expression OP_MENOR expression .)
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+  ! POTENCIA        [ reduce using rule 16 (expression -> expression OP_MENOR expression .) ]
+  ! RAIZ            [ reduce using rule 16 (expression -> expression OP_MENOR expression .) ]
+  ! OP_MENOR        [ reduce using rule 16 (expression -> expression OP_MENOR expression .) ]
+  ! OP_MAYOR        [ reduce using rule 16 (expression -> expression OP_MENOR expression .) ]
+
+
+state 35
+
+    (17) expression -> expression OP_MAYOR expression .
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+  ! shift/reduce conflict for POTENCIA resolved as shift
+  ! shift/reduce conflict for RAIZ resolved as shift
+  ! shift/reduce conflict for OP_MENOR resolved as shift
+  ! shift/reduce conflict for OP_MAYOR resolved as shift
+    $end            reduce using rule 17 (expression -> expression OP_MAYOR expression .)
+    COMA            reduce using rule 17 (expression -> expression OP_MAYOR expression .)
+    PARENTESIS_IZQ  reduce using rule 17 (expression -> expression OP_MAYOR expression .)
+    CORCHETE_IZQ    reduce using rule 17 (expression -> expression OP_MAYOR expression .)
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+  ! POTENCIA        [ reduce using rule 17 (expression -> expression OP_MAYOR expression .) ]
+  ! RAIZ            [ reduce using rule 17 (expression -> expression OP_MAYOR expression .) ]
+  ! OP_MENOR        [ reduce using rule 17 (expression -> expression OP_MAYOR expression .) ]
+  ! OP_MAYOR        [ reduce using rule 17 (expression -> expression OP_MAYOR expression .) ]
+
+
+state 36
+
+    (1) expression -> PR_POBLACION PUNTO PR_DISCRETA . VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    VARIABLE        shift and go to state 49
+
+
+state 37
+
+    (3) expression -> PR_POBLACION PUNTO PR_CONTINUA . VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    VARIABLE        shift and go to state 50
+
+
+state 38
+
+    (2) expression -> PR_MUESTRA PUNTO PR_CONTINUA . VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    VARIABLE        shift and go to state 51
+
+
+state 39
+
+    (4) expression -> PR_MUESTRA PUNTO PR_DISCRETA . VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+
+    VARIABLE        shift and go to state 52
+
+
+state 40
+
+    (5) expression -> Calc_MODA PARENTESIS_DER VARIABLE . PARENTESIS_IZQ
+
+    PARENTESIS_IZQ  shift and go to state 53
+
+
+state 41
+
+    (6) expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE . PARENTESIS_IZQ
+
+    PARENTESIS_IZQ  shift and go to state 54
+
+
+state 42
+
+    (7) expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE . PARENTESIS_IZQ
+
+    PARENTESIS_IZQ  shift and go to state 55
+
+
+state 43
+
+    (8) expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE . PARENTESIS_IZQ
+
+    PARENTESIS_IZQ  shift and go to state 56
+
+
+state 44
+
+    (9) expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE . PARENTESIS_IZQ
+
+    PARENTESIS_IZQ  shift and go to state 57
+
+
+state 45
+
+    (10) expression -> ADICION expression COMA . term
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    NUMEROS         shift and go to state 33
+
+    term                           shift and go to state 58
+    factor                         shift and go to state 16
+
+state 46
+
+    (11) expression -> SUSTRACCION expression COMA . term
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    NUMEROS         shift and go to state 33
+
+    term                           shift and go to state 59
+    factor                         shift and go to state 16
+
+state 47
+
+    (12) expression -> PRODUCTO expression COMA . term
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    NUMEROS         shift and go to state 33
+
+    term                           shift and go to state 60
+    factor                         shift and go to state 16
+
+state 48
+
+    (13) expression -> IMPRIME_DATOS PARENTESIS_DER expression . PARENTESIS_IZQ
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+    PARENTESIS_IZQ  shift and go to state 61
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+
+state 49
+
+    (1) expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE . CORCHETE_DER set_elements CORCHETE_IZQ
+
+    CORCHETE_DER    shift and go to state 62
+
+
+state 50
+
+    (3) expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE . CORCHETE_DER set_elements CORCHETE_IZQ
+
+    CORCHETE_DER    shift and go to state 63
+
+
+state 51
+
+    (2) expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE . CORCHETE_DER set_elements CORCHETE_IZQ
+
+    CORCHETE_DER    shift and go to state 64
+
+
+state 52
+
+    (4) expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE . CORCHETE_DER set_elements CORCHETE_IZQ
+
+    CORCHETE_DER    shift and go to state 65
+
+
+state 53
+
+    (5) expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .
+
+    POTENCIA        reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    RAIZ            reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MENOR        reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MAYOR        reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    $end            reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    COMA            reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    CORCHETE_IZQ    reduce using rule 5 (expression -> Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+
+
+state 54
+
+    (6) expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .
+
+    POTENCIA        reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    RAIZ            reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MENOR        reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MAYOR        reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    $end            reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    COMA            reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    CORCHETE_IZQ    reduce using rule 6 (expression -> Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+
+
+state 55
+
+    (7) expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .
+
+    POTENCIA        reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    RAIZ            reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MENOR        reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MAYOR        reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    $end            reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    COMA            reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    CORCHETE_IZQ    reduce using rule 7 (expression -> Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+
+
+state 56
+
+    (8) expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .
+
+    POTENCIA        reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    RAIZ            reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MENOR        reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MAYOR        reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    $end            reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    COMA            reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    CORCHETE_IZQ    reduce using rule 8 (expression -> Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+
+
+state 57
+
+    (9) expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .
+
+    POTENCIA        reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    RAIZ            reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MENOR        reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    OP_MAYOR        reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    $end            reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    COMA            reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+    CORCHETE_IZQ    reduce using rule 9 (expression -> Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ .)
+
+
+state 58
+
+    (10) expression -> ADICION expression COMA term .
+
+    POTENCIA        reduce using rule 10 (expression -> ADICION expression COMA term .)
+    RAIZ            reduce using rule 10 (expression -> ADICION expression COMA term .)
+    OP_MENOR        reduce using rule 10 (expression -> ADICION expression COMA term .)
+    OP_MAYOR        reduce using rule 10 (expression -> ADICION expression COMA term .)
+    $end            reduce using rule 10 (expression -> ADICION expression COMA term .)
+    COMA            reduce using rule 10 (expression -> ADICION expression COMA term .)
+    PARENTESIS_IZQ  reduce using rule 10 (expression -> ADICION expression COMA term .)
+    CORCHETE_IZQ    reduce using rule 10 (expression -> ADICION expression COMA term .)
+
+
+state 59
+
+    (11) expression -> SUSTRACCION expression COMA term .
+
+    POTENCIA        reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+    RAIZ            reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+    OP_MENOR        reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+    OP_MAYOR        reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+    $end            reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+    COMA            reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+    PARENTESIS_IZQ  reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+    CORCHETE_IZQ    reduce using rule 11 (expression -> SUSTRACCION expression COMA term .)
+
+
+state 60
+
+    (12) expression -> PRODUCTO expression COMA term .
+
+    POTENCIA        reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+    RAIZ            reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+    OP_MENOR        reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+    OP_MAYOR        reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+    $end            reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+    COMA            reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+    PARENTESIS_IZQ  reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+    CORCHETE_IZQ    reduce using rule 12 (expression -> PRODUCTO expression COMA term .)
+
+
+state 61
+
+    (13) expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .
+
+    POTENCIA        reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+    RAIZ            reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+    OP_MENOR        reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+    OP_MAYOR        reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+    $end            reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+    COMA            reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+    CORCHETE_IZQ    reduce using rule 13 (expression -> IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ .)
+
+
+state 62
+
+    (1) expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER . set_elements CORCHETE_IZQ
+    (22) set_elements -> . expression
+    (23) set_elements -> . expression COMA set_elements
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    set_elements                   shift and go to state 66
+    expression                     shift and go to state 67
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 63
+
+    (3) expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER . set_elements CORCHETE_IZQ
+    (22) set_elements -> . expression
+    (23) set_elements -> . expression COMA set_elements
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    set_elements                   shift and go to state 68
+    expression                     shift and go to state 67
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 64
+
+    (2) expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER . set_elements CORCHETE_IZQ
+    (22) set_elements -> . expression
+    (23) set_elements -> . expression COMA set_elements
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    set_elements                   shift and go to state 69
+    expression                     shift and go to state 67
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 65
+
+    (4) expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER . set_elements CORCHETE_IZQ
+    (22) set_elements -> . expression
+    (23) set_elements -> . expression COMA set_elements
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    set_elements                   shift and go to state 70
+    expression                     shift and go to state 67
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 66
+
+    (1) expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements . CORCHETE_IZQ
+
+    CORCHETE_IZQ    shift and go to state 71
+
+
+state 67
+
+    (22) set_elements -> expression .
+    (23) set_elements -> expression . COMA set_elements
+    (14) expression -> expression . POTENCIA term
+    (15) expression -> expression . RAIZ
+    (16) expression -> expression . OP_MENOR expression
+    (17) expression -> expression . OP_MAYOR expression
+
+    CORCHETE_IZQ    reduce using rule 22 (set_elements -> expression .)
+    COMA            shift and go to state 72
+    POTENCIA        shift and go to state 17
+    RAIZ            shift and go to state 18
+    OP_MENOR        shift and go to state 19
+    OP_MAYOR        shift and go to state 20
+
+
+state 68
+
+    (3) expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements . CORCHETE_IZQ
+
+    CORCHETE_IZQ    shift and go to state 73
+
+
+state 69
+
+    (2) expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements . CORCHETE_IZQ
+
+    CORCHETE_IZQ    shift and go to state 74
+
+
+state 70
+
+    (4) expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements . CORCHETE_IZQ
+
+    CORCHETE_IZQ    shift and go to state 75
+
+
+state 71
+
+    (1) expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .
+
+    POTENCIA        reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    RAIZ            reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MENOR        reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MAYOR        reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    $end            reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    COMA            reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    CORCHETE_IZQ    reduce using rule 1 (expression -> PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+
+
+state 72
+
+    (23) set_elements -> expression COMA . set_elements
+    (22) set_elements -> . expression
+    (23) set_elements -> . expression COMA set_elements
+    (1) expression -> . PR_POBLACION PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (2) expression -> . PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (3) expression -> . PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (4) expression -> . PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ
+    (5) expression -> . Calc_MODA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (6) expression -> . Calc_MEDIANA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (7) expression -> . Calc_MEDIA_ARITMETICA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (8) expression -> . Calc_DESV_ESTANDAR PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (9) expression -> . Calc_VARIANZA PARENTESIS_DER VARIABLE PARENTESIS_IZQ
+    (10) expression -> . ADICION expression COMA term
+    (11) expression -> . SUSTRACCION expression COMA term
+    (12) expression -> . PRODUCTO expression COMA term
+    (13) expression -> . IMPRIME_DATOS PARENTESIS_DER expression PARENTESIS_IZQ
+    (14) expression -> . expression POTENCIA term
+    (15) expression -> . expression RAIZ
+    (16) expression -> . expression OP_MENOR expression
+    (17) expression -> . expression OP_MAYOR expression
+    (18) expression -> . term
+    (21) expression -> . VARIABLE
+    (24) expression -> . NUMEROS
+    (19) term -> . factor
+    (20) factor -> . NUMEROS
+
+    PR_POBLACION    shift and go to state 2
+    PR_MUESTRA      shift and go to state 4
+    Calc_MODA       shift and go to state 5
+    Calc_MEDIANA    shift and go to state 6
+    Calc_MEDIA_ARITMETICA shift and go to state 7
+    Calc_DESV_ESTANDAR shift and go to state 8
+    Calc_VARIANZA   shift and go to state 9
+    ADICION         shift and go to state 10
+    SUSTRACCION     shift and go to state 12
+    PRODUCTO        shift and go to state 13
+    IMPRIME_DATOS   shift and go to state 14
+    VARIABLE        shift and go to state 3
+    NUMEROS         shift and go to state 15
+
+    expression                     shift and go to state 67
+    set_elements                   shift and go to state 76
+    term                           shift and go to state 11
+    factor                         shift and go to state 16
+
+state 73
+
+    (3) expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .
+
+    POTENCIA        reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    RAIZ            reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MENOR        reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MAYOR        reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    $end            reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    COMA            reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    CORCHETE_IZQ    reduce using rule 3 (expression -> PR_POBLACION PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+
+
+state 74
+
+    (2) expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .
+
+    POTENCIA        reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    RAIZ            reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MENOR        reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MAYOR        reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    $end            reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    COMA            reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    CORCHETE_IZQ    reduce using rule 2 (expression -> PR_MUESTRA PUNTO PR_CONTINUA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+
+
+state 75
+
+    (4) expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .
+
+    POTENCIA        reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    RAIZ            reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MENOR        reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    OP_MAYOR        reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    $end            reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    COMA            reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    PARENTESIS_IZQ  reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+    CORCHETE_IZQ    reduce using rule 4 (expression -> PR_MUESTRA PUNTO PR_DISCRETA VARIABLE CORCHETE_DER set_elements CORCHETE_IZQ .)
+
+
+state 76
+
+    (23) set_elements -> expression COMA set_elements .
+
+    CORCHETE_IZQ    reduce using rule 23 (set_elements -> expression COMA set_elements .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for POTENCIA in state 34 resolved as shift
+WARNING: shift/reduce conflict for RAIZ in state 34 resolved as shift
+WARNING: shift/reduce conflict for OP_MENOR in state 34 resolved as shift
+WARNING: shift/reduce conflict for OP_MAYOR in state 34 resolved as shift
+WARNING: shift/reduce conflict for POTENCIA in state 35 resolved as shift
+WARNING: shift/reduce conflict for RAIZ in state 35 resolved as shift
+WARNING: shift/reduce conflict for OP_MENOR in state 35 resolved as shift
+WARNING: shift/reduce conflict for OP_MAYOR in state 35 resolved as shift
+WARNING: reduce/reduce conflict in state 15 resolved using rule (factor -> NUMEROS)
+WARNING: rejected rule (expression -> NUMEROS) in state 15
+WARNING: Rule (expression -> NUMEROS) is never reduced
